@@ -20,12 +20,14 @@
 ##############################################################################
 from odoo import models, fields, api
 
-
 class ResPartner(models.Model):
-    
-    _inherit ="res.partner"
-    
-    hrsft_rc  =fields.Char("RC")
-    hrsft_if  =fields.Char("IF")
-    hrsft_patente  =fields.Char("PATENTE")
-    hrsft_ice  =fields.Char("ICE")
+    _inherit = "res.partner"
+
+    hrsft_rc = fields.Char("RC")
+    hrsft_if = fields.Char("IF")
+    hrsft_patente = fields.Char("PATENTE")
+    hrsft_ice = fields.Char(string="ICE", requirerd=True)
+
+
+
+

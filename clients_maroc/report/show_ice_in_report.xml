@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_sale_order_inherit_for_ice" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//t[@t-set='address']" position="replace">
+                <t t-set="address">
+                    <div style="color: #000!important;background-color: #f1f1f1!important;padding: 16px;">
+                        <div t-field="doc.partner_id"
+                             t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                        <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>:
+                            <span t-field="doc.partner_id.vat"/>
+                        </p>
+                        <div t-if="doc.partner_id.hrsft_ice" style="margin-top:10px !Important;">
+                            ICE:
+                            <span t-esc="doc.partner_id.hrsft_ice or ''"/>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>
+

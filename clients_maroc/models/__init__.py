@@ -19,4 +19,5 @@
 ##############################################################################
 
 from . import partner
+from . import invoicing_ice
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -20,22 +20,25 @@
 {
     'name': 'Client (RC,IF,PATENTE,ICE)',
     'version': '14.0',
-    'author': 'HORIYASOFT,LIBERTYSOFT',
+    'author': 'WEB MANIA',
     'category': 'Management',
     'summary': """Fiche partenaire Maroc""",
     'license': 'AGPL-3',
-    'website': 'www.libertysoft.be',
+    'website': 'www.webmania.ma',
     'description': """Ajouts des champs RC(Registre de Commerce, IF (Identifiant Fiscale), ICE (Identifiant ommun de l'Entreprise)
 dans la fiche client en conformité aux normes Maroc
 
     """,
-    'depends': ["base"],
+    'depends': ["base", "contacts", "sale", "account"],
     'data': [
-             'views/partner_view.xml',
-             ],
-    'images': ['static/description/banner.png'],
+        'views/partner_view.xml',
+        'report/show_ice_in_report.xml',
+        'report/invoice_report_extend.xml',
+    ],
+    'images': ['static/description/webmania.png'],
+    # 'images': ['static/description/banner.png'],
     'installable': True,
-    'application' : True,
-}
+    'application': True,
 
+}
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

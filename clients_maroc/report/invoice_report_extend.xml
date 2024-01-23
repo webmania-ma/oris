@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="ice_invoice_report" inherit_id="account.report_invoice_document">
+            <xpath expr="//t[@t-set='address']" position="replace">
+                <t t-set="address">
+                    <div style="color: #000!important;background-color: #f1f1f1!important;padding: 16px;">
+                        <address t-field="o.partner_id"
+                                 t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                        <div t-if="o.partner_id.vat" class="mt16">
+                            <t t-if="o.company_id.country_id.vat_label" t-esc="o.company_id.country_id.vat_label"
+                               id="inv_tax_id_label"/>
+                            <t t-else="">Tax ID</t>:
+                            <span t-field="o.partner_id.vat"/>
+                        </div>
+                        <div t-if="o.partner_id.hrsft_ice" style="margin-top:10px !Important;">
+                            ICE:
+                            <span t-esc="o.partner_id.hrsft_ice or ''"/>
+                        </div>
+                    </div>
+                </t>
+                
+            </xpath>
+        </template>
+    </data>
+</odoo>
