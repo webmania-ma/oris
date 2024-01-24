@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_user_default_warehouse">
+            <field name="name">res.user.inherited</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='preferences']" position="inside">
+                    <label for="warehouse" string="Default Warehouse" class="o_form_label o_bold"/>
+                    <div class="o_row">
+                        <field name="warehouse" string="Default warehouse" class="o_input"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

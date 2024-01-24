@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_sale_order_form_inherited">
+            <field name="name">sale.order.form.inherited</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='sale_shipping']" position="inside">
+                        <label for="user_default_warehouse" string="Warehouse" class="o_form_label o_bold"/>
+                        <div class="o_form_input">
+                            <field name="user_default_warehouse" class="o_input" readonly="1"/>
+                        </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
