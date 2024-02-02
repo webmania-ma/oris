@@ -9,7 +9,7 @@ class AccountInvoice(models.Model):
         for line in self.invoice_line_ids:
             if line.product_id and (line.price_unit < line.product_id.minimum_price):
                 raise UserError(
-                    _("Price is lower than the minimum product price! \n Please recheck %s") % (line.product_id.name))
+                    _("Le prix est inférieur au prix minimum du produit! \n Revérifiez s'il vous plait %s") % (line.product_id.name))
         return True
 
     def action_post(self):
