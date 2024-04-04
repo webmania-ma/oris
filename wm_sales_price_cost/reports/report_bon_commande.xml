@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+            string="Vérification Prix"
+            id="report_purchase_custom"
+            model="purchase.order"
+            report_type="qweb-pdf"
+            name="wm_sales_price_cost.report_bon_commande"
+            file="wm_sales_price_cost.report_bon_commande"
+        />
+</odoo>
