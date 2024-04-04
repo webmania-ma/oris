@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<odoo>
-    <data noupdate="1">
-        <function  model="purchase.order.line" name="invoc_fun_list_price">
-
-        </function>
-    </data>
-</odoo>

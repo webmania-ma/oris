@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_wm_sales_price_cost_wm_sales_price_cost,wm_sales_price_cost.wm_sales_price_cost,model_wm_sales_price_cost_wm_sales_price_cost,base.group_user,1,1,1,1
