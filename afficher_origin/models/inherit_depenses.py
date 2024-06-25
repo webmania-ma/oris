@@ -5,7 +5,8 @@ class Expense(models.Model):
     _inherit = "hr.expense"
 
     included_sale_orders = fields.Many2one('sale.order', string='Bon de commande',
-                                           domain=[('state', '=', 'sale'),('include_in_expenses', '=', True)],
+                                           domain=['|', ('state', '=', 'done'), ('state', '=', 'sale'),
+                                                   ('include_in_expenses', '=', True)],
                                            help="Select confirmed sale orders")
 
 
