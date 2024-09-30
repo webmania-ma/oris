@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_calcule_marge_par_commercial_calcule_marge_par_commercial,calcule_marge_par_commercial.calcule_marge_par_commercial,model_calcule_marge_par_commercial_calcule_marge_par_commercial,base.group_user,1,1,1,1

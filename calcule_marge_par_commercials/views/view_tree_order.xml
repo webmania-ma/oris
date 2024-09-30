@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit.sale.margin.commerc</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_id']" position="after">
+                 <field name="margin"  string="Marge" options="{'no_create': True}"
+                       optional="show" />
+                <field name="margin_par_commercial"  string = "Marge Commerciale" options="{'no_create': True}"
+                       optional="show"  groups="calcule_marge_par_commercials.group_access_commecial" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
