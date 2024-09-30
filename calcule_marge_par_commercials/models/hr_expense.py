@@ -9,6 +9,7 @@ class HrExpense(models.Model):
             ('state', '=', 'approved'),
             ('included_sale_orders', '!=', False)
         ])
+
         sale_orders = approved_expenses.mapped('included_sale_orders')
         for order in sale_orders:
             order.btn_calculate_charge()

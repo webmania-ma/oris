@@ -20,7 +20,7 @@
             </xpath>
             <xpath expr="//group[@name='sale_header']//group[@name='order_details']" position="after">
                 <field name="include_in_expenses" invisible='1'/>
-                <button name="btn_calculate_charge" style="margin-left: 13%;" class="btn-link mb-1 px-0 o_group_col_10"
+                <button name="btn_calculate_charge" style="margin-left: 17%;" class="btn-link mb-1 px-0 o_group_col_10"
                         type="object" string="Calculer la Marge Commerciale"
                         attrs="{'invisible': ['|', ('state', '!=', 'done') , ('include_in_expenses', '=', False)]}"
                         groups="calcule_marge_par_commercials.group_access_commecial"/>

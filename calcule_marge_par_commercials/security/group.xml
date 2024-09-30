@@ -4,7 +4,6 @@
         <record id="group_access_commecial" model="res.groups">
             <field name="name">Groupe de Calcul de Marge</field>
             <field name="category_id" ref="base.module_category_sales_sales"/>
-
         </record>
     </data>
 </odoo>

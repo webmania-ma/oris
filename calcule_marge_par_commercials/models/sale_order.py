@@ -13,14 +13,13 @@ class SaleOrderLine(models.Model):
     total_expense_amount = fields.Monetary(string="Autres Charges",
                                            currency_field='currency_id',
                                            readonly=True)
-
     def btn_calculate_charge(self):
         for order in self:
             expenses = self.env['hr.expense'].search([('included_sale_orders', '=', order.id),
                                                       ('state', '=', 'approved')])
             total_amount = sum(expense.total_amount for expense in expenses)
             order.total_expense_amount = total_amount
-
+            
     @api.model
     def action_update_all_sale_order_calculations(self):
         sale_orders = self.search([('state', 'in', ['sale', 'done'])])
@@ -38,22 +37,28 @@ class SaleOrderLine(models.Model):
             }
         }
 
-    @api.depends('margin', 'company_id.percentage', 'company_id.show_percentage', 'total_expense_amount')
+
+    @api.depends('margin', 'company_id.percentage', 'company_id.show_percentage', 'company_id.percentage_impression', 'company_id.show_percentage_impresssion', 'total_expense_amount', 'sans_impression')
     def _compute_margin_par_commercial(self):
         for order in self:
-            if order.company_id.show_percentage:
-                percentage = order.company_id.percentage / 100.0
-                exclue_charge = order.margin - order.total_expense_amount
-                order.margin_par_commercial = exclue_charge * percentage
-            else:
-                order.margin_par_commercial = 0.0
-                percentage = 1
-                exclue_charge = order.margin - order.total_expense_amount
-                order.margin_par_commercial = exclue_charge * percentage
+            exclue_charge = order.margin - order.total_expense_amount
+            percentage = 1
 
+            if order.sans_impression and order.company_id.show_percentage_impresssion:
+
+                percentage = order.company_id.percentage_impression / 100.0
+
+            elif not order.sans_impression and order.company_id.show_percentage:
+                percentage = order.company_id.percentage / 100.0
+
+            order.margin_par_commercial = exclue_charge * percentage
     @api.returns('self', lambda value: value.id)
     def copy(self, default=None):
         if default is None:
             default = {}
         default['total_expense_amount'] = 0
         return super(SaleOrderLine, self).copy(default)
+
+
+
+
