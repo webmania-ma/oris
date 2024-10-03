@@ -5,10 +5,10 @@ from odoo import fields, models , api
 class ResCompany(models.Model):
     _inherit = 'res.company'
 
-    show_percentage = fields.Boolean(string="Pourcentage de Marge Commerciale", default=False)
+    show_percentage = fields.Boolean(string="Pourcentage de Marge Commerciale", default=True)
     percentage = fields.Integer(string="Pourcentage %", default=10)
 
-    show_percentage_impresssion = fields.Boolean(string="Pourcentage de Marge Sans Impression", default=False)
+    show_percentage_impresssion = fields.Boolean(string="Pourcentage de Marge Sans Impression", default=True)
     percentage_impression = fields.Integer(string="Pourcentage sans impression %", default=7)
 
 class ResConfigSettings(models.TransientModel):
