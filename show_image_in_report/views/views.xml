@@ -23,9 +23,10 @@
         <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr/t/td[@name='td_name']" position="after">
                 <t t-if="doc.show_images_in_report">
           <t t-if="line.order_line_image">
-                    <td name="td_image" class="text-center">
-                    <img t-att-src="image_data_uri(line.order_line_image)" style="width: 30px; height: 30px; vertical-align: middle;"/>
-                    </td>
+
+               <td style="height:20px !important;width:20px !important;">
+                    <span t-field="line.order_line_image" t-options='{"widget": "image"}'/>
+                </td>
                    </t>
           <t t-else="">
                 <td name="td_image" class="text-center">
